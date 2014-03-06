@@ -1,0 +1,8 @@
+#!/bin/sh
+<%= @header %>
+# NOTE: disable VMware Tools time sync:
+# Server > Edit Settings > Options > VMware Tools > Synchronize guest time
+#   with host
+
+# force sync w/time server
+ntpdate <%= node['ntp']['server'] %> >> /dev/null 2>&1
