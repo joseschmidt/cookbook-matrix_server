@@ -1,0 +1,10 @@
+<%= @header %>
+# Do not remove the following line, or various programs
+# that require network functionality will fail.
+<%  @hosts.sort.each do |ip, hostname| -%>
+<%    if hostname.kind_of? Array -%>
+<%=     "#{ip} #{hostname.join(' ')}" %>
+<%    else -%>
+<%=     "#{ip} #{hostname}" %>
+<%    end # if hostname.kind_of? Array -%>
+<%  end # @hosts.each -%>
