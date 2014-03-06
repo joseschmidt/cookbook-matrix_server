@@ -32,9 +32,9 @@ RSpec::Core::RakeTask.new(:unit) do |t|
   t.pattern = file_list
 
   t.rspec_opts = [].tap do |a|
+    a.push('-I spec/unit/support')
     a.push('--color')
     a.push('--format progress')
-    # a.push('--require unit/spec_helper')
   end.join(' ')
 end # RSpec::Core::RakeTask
 
