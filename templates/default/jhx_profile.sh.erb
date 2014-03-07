@@ -1,0 +1,38 @@
+#!/bin/sh
+<%= @header %>
+
+# aliases
+alias cdg='cd `rvm gemdir`'
+alias cdh='cd /etc/httpd/conf.d/'
+alias cdl='cd /var/www/apps/matrix/production/shared/log'
+alias cdm='cd /var/www/apps/matrix/production/current'
+alias cdn='cd /opt/nginx/conf/'
+alias cdw='cd /var/www'
+
+alias la='/bin/ls -al'
+
+alias me='printf "\n$(id -un)@$(uname -n) in $(pwd)\n\n"'
+
+alias path='/bin/echo $PATH'
+# alias ps='/bin/ps -auxc'
+alias psg='/bin/ps ax | grep'
+
+alias t='tail -F -n 1000'
+alias tchef='sudo tail -F -n 1000 /var/log/chef/client.log'
+alias tm='sudo tail -F -n 1000 /var/log/maillog'
+alias tp='cd /var/www/apps/matrix/production/shared/log && tail -F -n 1000 production.log'
+alias ts='cd /var/www/apps/matrix/staging/shared/log && tail -F -n 1000 staging.log'
+
+
+# custom prompt for git repos
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+
+# environment variables
+export EDITOR=/usr/bin/nano
+
+
+# paths
+pathmunge /sbin
+pathmunge /usr/sbin
+pathmunge /opt/vagrant_ruby/bin
