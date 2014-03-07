@@ -24,6 +24,7 @@
 include_recipe 'mysql::server'
 
 include_recipe 'matrix_server::automysqlbackup'
+include_recipe 'matrix_server::bash'
 include_recipe 'matrix_server::network'
 include_recipe 'matrix_server::ntp'
 include_recipe 'matrix_server::passenger_ohai_plugin'

@@ -5,6 +5,7 @@ AllCops:
     - Gemfile
     - Rakefile
   Excludes:
+    - files/default/rmate
     - spec/foodcritic/**
 
 EmptyLines:
