@@ -15,6 +15,9 @@ describe 'matrix_server::network' do
           # override cookbook attributes
           node.set['file']['header'] = 'node.file.header'
           node.set['network']['firewall'] = [2, 178]
+
+          # required for sysctl cookbook
+          node.set['platform_family'] = 'rhel'
         end.converge(described_recipe)
       end # let
 

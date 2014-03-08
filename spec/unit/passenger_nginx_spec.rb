@@ -28,6 +28,7 @@ describe 'matrix_server::passenger_nginx' do
       node.set['rvm']['install_pkgs'] = []
 
       # required for build-essential cookbook on travis-ci
+      # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # cached

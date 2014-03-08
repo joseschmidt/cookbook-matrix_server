@@ -29,6 +29,7 @@ describe 'matrix_server::automysqlbackup' do
       node.set['automysqlbackup']['conf_file'] = 'automysqlbackup_conf_file'
 
       # required for build-essential cookbook on travis-ci
+      # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # let

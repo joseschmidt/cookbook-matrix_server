@@ -7,6 +7,9 @@ describe 'matrix_server::ntp' do
       # override cookbook attributes
       node.set['file']['header'] = 'node.file.header'
       node.set['ntp']['server'] = 'time.nist.gov'
+
+      # required for sysctl cookbook
+      node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # let
 

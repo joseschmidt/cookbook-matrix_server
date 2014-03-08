@@ -14,6 +14,9 @@ describe 'matrix_server::r_project' do
       # override cookbook attributes
       node.set['r_project']['qcc']['version'] = '2.718'
       node.set['r_project']['r']['version'] = '0.0.0'
+
+      # required for sysctl cookbook
+      node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # let
 

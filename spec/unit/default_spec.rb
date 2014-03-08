@@ -36,6 +36,7 @@ describe 'matrix_server' do
 
       # required for build-essential cookbook on travis-ci
       # required for simple_iptables cookbook
+      # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # let

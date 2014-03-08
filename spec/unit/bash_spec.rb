@@ -5,6 +5,9 @@ describe 'matrix_server::bash' do
   cached(:chef_run) do
     ChefSpec::Runner.new do |node|
       node.set['file']['header'] = 'node.file.header'
+
+      # required for sysctl cookbook
+      node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # cached
 

@@ -9,6 +9,7 @@ describe 'matrix_server::passenger_ohai_plugin' do
       node.set['passenger']['nginx']['prefix'] = '/opt/nginx-qa'
 
       # required for build-essential cookbook on travis-ci
+      # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # cached
