@@ -11,22 +11,6 @@ describe 'matrix_server::bash' do
     end.converge(described_recipe)
   end # cached
 
-  #------------------------------------------------------ directory[/etc/chef]
-  describe '/etc/chef' do
-    it 'creates directory with expected owner, group' do
-      expect(chef_run).to create_directory(subject)
-        .with(:owner => 'root', :group => 'root')
-    end # it
-  end # describe
-
-  #--------------------------------- file[/etc/chef/encrypted_data_bag_secret]
-  describe '/etc/chef/encrypted_data_bag_secret' do
-    it 'creates file with expected owner, group, mode' do
-      expect(chef_run).to create_file(subject)
-        .with(:owner => 'root', :group => 'root', :mode => '0600')
-    end # it
-  end # describe
-
   #--------------------------------------------- cookbook_file[/etc/gitconfig]
   describe '/etc/gitconfig' do
     it 'creates file with expected owner, group, mode' do

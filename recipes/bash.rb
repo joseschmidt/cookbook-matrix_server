@@ -20,19 +20,6 @@
 # limitations under the License.
 #
 
-#-------------------------------------------------------- directory[/etc/chef]
-directory '/etc/chef' do
-  owner 'root'
-  group 'root'
-end # directory
-
-#----------------------------------- file[/etc/chef/encrypted_data_bag_secret]
-file '/etc/chef/encrypted_data_bag_secret' do
-  owner 'root'
-  group 'root'
-  mode  '0600'
-end # file
-
 #----------------------------------------------- cookbook_file[/etc/gitconfig]
 # install global git config
 cookbook_file '/etc/gitconfig' do
