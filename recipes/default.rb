@@ -21,18 +21,20 @@
 #
 
 #------------------------------------------------------------ include_recipe[]
+# prerequisites
 include_recipe 'mysql::server'
+include_recipe 'matrix_server::passenger_ohai_plugin'
+include_recipe 'matrix_server::passenger'          # req passenger_ohai_plugin
 
-include_recipe 'matrix_server::automysqlbackup'
+# recipes (alphabetical order where possible)
+include_recipe 'matrix_server::automysqlbackup'            # req mysql::server
 include_recipe 'matrix_server::bash'
 include_recipe 'matrix_server::bootstrap'
 include_recipe 'matrix_server::chef_client'
 include_recipe 'matrix_server::network'
 include_recipe 'matrix_server::ntp'
-include_recipe 'matrix_server::passenger_ohai_plugin'
-include_recipe 'matrix_server::passenger'
-include_recipe 'matrix_server::passenger_nginx'
+include_recipe 'matrix_server::passenger_nginx'                # req passenger
 include_recipe 'matrix_server::r_project'
-include_recipe 'matrix_server::rails_app_db'
+include_recipe 'matrix_server::rails_app_db'               # req mysql::server
 include_recipe 'matrix_server::rails_app_web'
 include_recipe 'matrix_server::sudo'
