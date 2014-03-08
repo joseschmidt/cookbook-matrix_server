@@ -22,6 +22,7 @@ depends           'mysql', '~> 2.1.0'
 depends           'ohai', '>= 1.1.4'
 depends           'rvm'
 depends           'simple_iptables'
+depends           'sudo', '~> 2.3.0'
 depends           'sysctl'
 depends           'yum-epel'
 

@@ -18,6 +18,7 @@ describe 'matrix_server' do
       "cat | head -1 | grep -q '^rvm is a function$'\"").and_return(true)
     stub_command("bash -c \"source /etc/profile.d/rvm.sh && type rvm | " \
       "cat | head -1 | grep -q '^rvm is a function$'\"").and_return(true)
+    stub_command('sudo -V').and_return(true)
   end # before
 
   cached(:chef_run) do
@@ -103,6 +104,12 @@ describe 'matrix_server' do
   end # describe
 
   describe 'matrix_server::rails_app_web' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'matrix_server::sudo' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
     end # it
