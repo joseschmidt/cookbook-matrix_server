@@ -61,6 +61,12 @@ describe 'matrix_server' do
     end # it
   end # describe
 
+  describe 'matrix_server::bootstrap' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'matrix_server::network' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
