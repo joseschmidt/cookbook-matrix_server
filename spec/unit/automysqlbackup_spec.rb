@@ -32,7 +32,7 @@ describe 'matrix_server::automysqlbackup' do
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
-  end # let
+  end # cached
 
   #---------------------------------------------------------- include_recipe[]
   describe 'mysql::ruby' do

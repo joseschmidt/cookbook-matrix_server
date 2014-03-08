@@ -19,7 +19,7 @@ describe 'matrix_server::network' do
           # required for sysctl cookbook
           node.set['platform_family'] = 'rhel'
         end.converge(described_recipe)
-      end # let
+      end # cached
 
       #---------------------------------------------------------- package[dns]
       describe 'dns' do

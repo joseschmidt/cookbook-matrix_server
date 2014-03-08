@@ -11,7 +11,7 @@ describe 'matrix_server::ntp' do
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
-  end # let
+  end # cached
 
   #-------------------------------------------------------------- package[ntp]
   describe 'ntp' do

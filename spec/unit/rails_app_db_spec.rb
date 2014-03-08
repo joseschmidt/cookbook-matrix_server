@@ -57,7 +57,7 @@ describe 'matrix_server::rails_app_db' do
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
-  end # let
+  end # cached
 
   #---------------------------------------------------------- include_recipe[]
   describe 'mysql::ruby' do
