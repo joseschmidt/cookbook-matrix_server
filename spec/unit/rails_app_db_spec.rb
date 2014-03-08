@@ -54,6 +54,7 @@ describe 'matrix_server::rails_app_db' do
       ]
 
       # required for build-essential cookbook on travis-ci
+      # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
   end # let
