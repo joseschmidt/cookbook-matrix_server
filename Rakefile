@@ -43,7 +43,7 @@ FoodCritic::Rake::LintTask.new do |t|
   # exclude tags by using ~FC002 notation within :tags array
   t.options = {
     :fail_tags => %w(any),
-    # :include_rules => ['spec/foodcritic'],
+    :include_rules => ['spec/foodcritic'],
     :tags => %w()
   }
 end # FoodCritic::Rake::LintTask.new
