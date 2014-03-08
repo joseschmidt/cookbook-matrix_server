@@ -3,8 +3,8 @@ README
 
 This document describes how to add/update foodcritic rules.
 
-Add Rules (via `git`)
----------------------
+Add Rules
+---------
 
 ```
 git submodule add git://github.com/customink-webops/foodcritic-rules.git spec/foodcritic/customink
@@ -30,8 +30,8 @@ Tasks: TOP => foodcritic
 ```
 
 
-Update Rules (via `git`)
-------------------------
+Update Rules
+------------
 
 Note: Travis-CI is setup to automatically run this prior to builds (via `travis.yml`).
 
