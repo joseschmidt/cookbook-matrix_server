@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 # Cookbook Name:: matrix_server
-# Attributes:: sudo
+# Attributes:: authorization
 #
 
 node.set['authorization']['sudo']['groups'] = ['wheel']
@@ -15,4 +15,4 @@ node.set['authorization']['sudo']['sudoers_defaults'] = [
                LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC \
                LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS \
                _XKB_CHARSET XAUTHORITY PATH SSH_AUTH_SOCK"'
-  ]
+]
