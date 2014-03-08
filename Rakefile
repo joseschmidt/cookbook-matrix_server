@@ -44,7 +44,7 @@ FoodCritic::Rake::LintTask.new do |t|
   t.options = {
     :fail_tags => %w(any),
     # :include_rules => ['spec/foodcritic'],
-    :tags => %w(~FC047)
+    :tags => %w()
   }
 end # FoodCritic::Rake::LintTask.new
 

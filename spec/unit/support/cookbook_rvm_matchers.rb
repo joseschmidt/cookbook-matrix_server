@@ -1,6 +1,7 @@
 # encoding: utf-8
+
+# cookbook:: rvm
 if defined?(ChefSpec)
-  # cookbook:: rvm
   def create_rvm_environment(resource_name)
     ChefSpec::Matchers::ResourceMatcher
       .new(:rvm_environment, :create, resource_name)
