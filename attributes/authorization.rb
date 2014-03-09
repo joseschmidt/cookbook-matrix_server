@@ -4,9 +4,9 @@
 # Attributes:: authorization
 #
 
-node.set['authorization']['sudo']['groups'] = ['wheel']
-node.set['authorization']['sudo']['include_sudoers_d'] = true
-node.set['authorization']['sudo']['sudoers_defaults'] = [
+normal['authorization']['sudo']['groups']             = %w(wheel)
+normal['authorization']['sudo']['include_sudoers_d']  = true
+normal['authorization']['sudo']['sudoers_defaults']   = [
   '!visiblepw',
   'env_reset',
   'env_keep = "COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR \
