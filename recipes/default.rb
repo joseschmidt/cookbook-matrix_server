@@ -38,3 +38,4 @@ include_recipe 'matrix_server::r_project'
 include_recipe 'matrix_server::rails_app_db'               # req mysql::server
 include_recipe 'matrix_server::rails_app_web'
 include_recipe 'matrix_server::sudo'
+include_recipe 'matrix_server::sysctl'
