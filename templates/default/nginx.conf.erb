@@ -61,7 +61,8 @@ http {
 
   # deployment (may be used multiple times h/s/l/i)
   <% node['rails_app']['stages'].each do |stage| -%>
-  <% pad = 9 - stage['codename'].length -%>
+  <% length = stage['codename'].length -%>
+  <% pad = length > 9 ? 0 : 9 - length -%>
   <%= "passenger_base_uri                /#{stage['codename']}; #{' ' * pad}# #{stage['name']} server" %>
   <% end -%>
 
