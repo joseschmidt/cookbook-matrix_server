@@ -37,6 +37,18 @@ describe 'matrix_server' do
     end # it
   end # describe
 
+  describe 'matrix_server::passenger_ohai_plugin' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'matrix_server::passenger' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'matrix_server::automysqlbackup' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
@@ -68,18 +80,6 @@ describe 'matrix_server' do
   end # describe
 
   describe 'matrix_server::ntp' do
-    it 'includes described recipe' do
-      expect(chef_run).to include_recipe(subject)
-    end # it
-  end # describe
-
-  describe 'matrix_server::passenger_ohai_plugin' do
-    it 'includes described recipe' do
-      expect(chef_run).to include_recipe(subject)
-    end # it
-  end # describe
-
-  describe 'matrix_server::passenger' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
     end # it
