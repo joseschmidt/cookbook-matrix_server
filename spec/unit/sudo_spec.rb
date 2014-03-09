@@ -2,11 +2,6 @@
 require 'spec_helper'
 
 describe 'matrix_server::sudo' do
-  before do
-    # required for travis-ci
-    stub_command('sudo -V').and_return(true)
-  end # before
-
   cached(:chef_run) do
     ChefSpec::Runner.new do |node|
       # required for sysctl cookbook

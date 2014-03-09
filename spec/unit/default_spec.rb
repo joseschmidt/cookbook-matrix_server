@@ -10,15 +10,6 @@ describe 'matrix_server' do
         'root' => 'root_password'
       }
     )
-
-    # required for travis-ci
-    stub_command("\"/usr/bin/mysql\" -u root -e 'show databases;'")
-      .and_return(true)
-    stub_command("bash -c \"source /etc/profile && type rvm | " \
-      "cat | head -1 | grep -q '^rvm is a function$'\"").and_return(true)
-    stub_command("bash -c \"source /etc/profile.d/rvm.sh && type rvm | " \
-      "cat | head -1 | grep -q '^rvm is a function$'\"").and_return(true)
-    stub_command('sudo -V').and_return(true)
   end # before
 
   cached(:chef_run) do
