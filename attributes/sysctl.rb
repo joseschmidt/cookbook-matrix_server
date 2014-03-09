@@ -4,6 +4,6 @@
 # Attributes:: sysctl
 #
 
-default['sysctl']['params'] = {
+normal['sysctl']['params'] = {
   'kernel.pid_max' => 999_999
 }
