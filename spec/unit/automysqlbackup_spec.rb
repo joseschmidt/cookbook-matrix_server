@@ -24,9 +24,10 @@ describe 'matrix_server::automysqlbackup' do
       Chef::Environment.stub(:load).and_return(env)
 
       # override cookbook attributes
-      node.set['automysqlbackup']['backup_dir'] = '/var/tmp/backup_dir'
-      node.set['automysqlbackup']['conf_dir'] = '/var/tmp/conf_dir'
-      node.set['automysqlbackup']['conf_file'] = 'automysqlbackup_conf_file'
+      node.override['automysqlbackup']['backup_dir'] = '/var/tmp/backup_dir'
+      node.override['automysqlbackup']['conf_dir'] = '/var/tmp/conf_dir'
+      node.override['automysqlbackup']['conf_file'] =
+        'automysqlbackup_conf_file'
 
       # required for build-essential cookbook on travis-ci
       # required for sysctl cookbook
