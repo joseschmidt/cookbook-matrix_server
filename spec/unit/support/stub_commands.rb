@@ -7,6 +7,10 @@ RSpec.configure do |config|
     stub_command("bash -c \"source /etc/profile && type rvm | " \
       "cat | head -1 | grep -q '^rvm is a function$'\"").and_return(true)
 
+    # required for travis-ci
+    stub_command("bash -c \"source /etc/profile.d/rvm.sh && type rvm | " \
+      "cat | head -1 | grep -q '^rvm is a function$'\"").and_return(true)
+
     #--------------------------------------------- recipe[matrix_server::sudo]
     stub_command('sudo -V').and_return(true)
 
