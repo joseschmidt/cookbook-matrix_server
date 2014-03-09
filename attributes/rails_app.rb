@@ -4,9 +4,8 @@
 # Attributes:: rails_app
 #
 
-default['rails_app']['name']                  = 'matrix'
-default['rails_app']['rails']['version']      = '3.2.11'
-default['rails_app']['stages'] = [
+normal['rails_app']['name']   = 'matrix'
+normal['rails_app']['stages'] = [
   {
     'name'                    => 'production',
     'codename'                => 'neo',

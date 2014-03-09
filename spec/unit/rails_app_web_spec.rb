@@ -30,9 +30,9 @@ describe 'matrix_server::rails_app_web' do
           Chef::Environment.stub(:load).and_return(env)
 
           # override cookbook attributes
-          node.set['file']['header'] = 'node.file.header'
-          node.set['rails_app']['name'] = 'whiz_bang_app'
-          node.set['rails_app']['stages'] = [
+          node.override['file']['header'] = 'node.file.header'
+          node.override['rails_app']['name'] = 'whiz_bang_app'
+          node.override['rails_app']['stages'] = [
             {
               'name'                    => 'stage1',
               'codename'                => 'st1',
