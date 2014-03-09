@@ -5,8 +5,8 @@ describe 'matrix_server::ntp' do
   cached(:chef_run) do
     ChefSpec::Runner.new do |node|
       # override cookbook attributes
-      node.set['file']['header'] = 'node.file.header'
-      node.set['ntp']['server'] = 'time.nist.gov'
+      node.override['file']['header'] = 'node.file.header'
+      node.override['ntp']['server'] = 'time.nist.gov'
 
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
