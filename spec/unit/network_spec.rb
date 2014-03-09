@@ -13,7 +13,9 @@ describe 'matrix_server::network' do
       cached(:chef_run) do
         ChefSpec::Runner.new(i) do |node|
           # override cookbook attributes
-          node.set['file']['header'] = 'node.file.header'
+          node.override['file']['header'] = 'node.file.header'
+
+          # set cookbook attributes
           node.set['network']['firewall'] = [2, 178]
 
           # required for sysctl cookbook
