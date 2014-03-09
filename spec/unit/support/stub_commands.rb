@@ -22,5 +22,8 @@ RSpec.configure do |config|
     stub_command("getenforce | egrep -qx 'Permissive|Disabled'")
       .and_return(true)
     stub_command("getenforce | grep -qx 'Disabled'").and_return(true)
+
+    #-------------------------------------------------- recipe[user::data_bag]
+    stub_data_bag_item('users', 'jeeves').and_return(:username => 'jeeves')
   end # config.before
 end # RSpec

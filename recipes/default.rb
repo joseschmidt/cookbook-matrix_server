@@ -22,10 +22,12 @@
 
 #------------------------------------------------------------ include_recipe[]
 # prerequisites (dependencies indicated by => notation)
+include_recipe 'user::data_bag'
 include_recipe 'selinux::permissive'
 include_recipe 'mysql::server'
 include_recipe 'matrix_server::passenger_ohai_plugin'
 include_recipe 'matrix_server::passenger'           # => passenger_ohai_plugin
+                                                           # => user::data_bag
 
 # recipes (alphabetical order where possible)
 include_recipe 'matrix_server::automysqlbackup'             # => mysql::server

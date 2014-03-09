@@ -25,6 +25,7 @@ depends           'selinux'
 depends           'simple_iptables'
 depends           'sudo', '~> 2.3.0'
 depends           'sysctl'
+depends           'user'
 depends           'yum-epel'
 
 #--------------------------------------------------------- supported platforms
