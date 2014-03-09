@@ -22,6 +22,7 @@
 
 #------------------------------------------------------------ include_recipe[]
 # prerequisites (dependencies indicated by => notation)
+include_recipe 'selinux::permissive'
 include_recipe 'mysql::server'
 include_recipe 'matrix_server::passenger_ohai_plugin'
 include_recipe 'matrix_server::passenger'           # => passenger_ohai_plugin

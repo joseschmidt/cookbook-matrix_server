@@ -31,6 +31,12 @@ describe 'matrix_server' do
   end # cached
 
   #---------------------------------------------------------- include_recipe[]
+  describe 'selinux::permissive' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'mysql::server' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
