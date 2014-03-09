@@ -30,7 +30,7 @@ describe 'matrix_server::rails_app_db' do
       Chef::Environment.stub(:load).and_return(env)
 
       # override cookbook attributes
-      node.set['rails_app']['stages'] = [
+      node.override['rails_app']['stages'] = [
         {
           'name'                    => 'stage1',
           'codename'                => 'st1',

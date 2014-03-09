@@ -4,4 +4,4 @@
 # Attributes:: ntp
 #
 
-default['ntp']['server'] = '172.16.2.82'
+normal['ntp']['server'] = '172.16.2.82'

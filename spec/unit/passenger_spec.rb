@@ -13,8 +13,8 @@ describe 'matrix_server::passenger' do
   cached(:chef_run) do
     ChefSpec::Runner.new do |node|
       # override cookbook attributes
-      node.set['passenger']['ruby_string'] = '1.9.3-fake'
-      node.set['passenger']['version'] = '3.0.19-fake'
+      node.override['passenger']['ruby_string'] = '1.9.3-fake'
+      node.override['passenger']['version']     = '3.0.19-fake'
 
       # required because default value is nil
       node.set['rvm']['install_pkgs'] = []
