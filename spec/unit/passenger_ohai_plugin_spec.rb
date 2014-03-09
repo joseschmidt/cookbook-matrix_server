@@ -5,8 +5,8 @@ describe 'matrix_server::passenger_ohai_plugin' do
   cached(:chef_run) do
     ChefSpec::Runner.new do |node|
       # override cookbook attributes
-      node.set['ohai']['plugin_path'] = '/etc/chef/ohai_plugins-qa'
-      node.set['passenger']['nginx']['prefix'] = '/opt/nginx-qa'
+      node.override['ohai']['plugin_path'] = '/etc/chef/ohai_plugins-qa'
+      node.override['passenger']['nginx']['prefix'] = '/opt/nginx-qa'
 
       # required for build-essential cookbook on travis-ci
       # required for sysctl cookbook

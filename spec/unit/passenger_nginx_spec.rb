@@ -13,13 +13,13 @@ describe 'matrix_server::passenger_nginx' do
   cached(:chef_run) do
     ChefSpec::Runner.new do |node|
       # override cookbook attributes
-      node.set['passenger']['nginx']['prefix'] = '/opt/nginx-qa'
-      node.set['passenger']['nginx']['user'] = 'nginx-qa'
-      node.set['passenger']['ruby_string'] = '1.9.3-fake'
-      node.set['passenger']['version'] = '3.0.19-fake'
-      node.set['passenger']['version_map']['3.0.19-fake'] = '1.2.6-fake'
+      node.override['passenger']['nginx']['prefix'] = '/opt/nginx-qa'
+      node.override['passenger']['nginx']['user'] = 'nginx-qa'
+      node.override['passenger']['ruby_string'] = '1.9.3-fake'
+      node.override['passenger']['version'] = '3.0.19-fake'
+      node.override['passenger']['version_map']['3.0.19-fake'] = '1.2.6-fake'
 
-      node.set['rails_app']['stages'] = [
+      node.override['rails_app']['stages'] = [
         { 'codename' => 'st1' },
         { 'codename' => 'st2' }
       ]

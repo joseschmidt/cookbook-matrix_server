@@ -4,8 +4,8 @@
 # Attributes:: passenger
 #
 
-default['passenger']['version']                   = '3.0.19'
-default['passenger']['version_map'] = {
+normal['passenger']['version']                  = '3.0.19'
+normal['passenger']['version_map']              = {
   '3.0.19' => '1.2.6',
   '3.0.18' => '1.2.4',
   '3.9.1.beta' => '1.2.4', # problems building this
@@ -17,15 +17,17 @@ default['passenger']['version_map'] = {
   '3.0.11' => '1.0.10'
 } # map versions: passenger => nginx
 
-default['passenger']['nginx']['prefix']           = '/opt/nginx'
-default['passenger']['nginx']['user']             = 'nginx'
+normal['passenger']['nginx']['prefix']          = '/opt/nginx-blah'
+normal['passenger']['nginx']['user']            = 'nginx'
 
-default['passenger']['nginx']['conf_path']        =
+normal['passenger']['nginx']['conf_path']       =
   "#{node['passenger']['nginx']['prefix']}/conf/nginx.conf"
 
-default['passenger']['nginx']['configure_flags']  = [
-  'auto', 'auto-download', "prefix=#{node['passenger']['nginx']['prefix']}"
+normal['passenger']['nginx']['configure_flags'] = [
+  'auto',
+  'auto-download',
+  "prefix=#{node['passenger']['nginx']['prefix']}"
 ]
-default['passenger']['nginx']['modules']          = [
+normal['passenger']['nginx']['modules']         = [
   'http_gzip_static_module' # not needed with passenger-3.0.19
 ]
