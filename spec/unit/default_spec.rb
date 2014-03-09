@@ -15,13 +15,10 @@ describe 'matrix_server' do
   cached(:chef_run) do
     ChefSpec::Runner.new do |node|
       # override cookbook attributes
-      node.set['file']['header'] = '# fake'
       node.set['mysql']['server_debian_password'] = 'server_debian_password'
       node.set['mysql']['server_repl_password'] = 'server_repl_password'
       node.set['mysql']['server_root_password'] = 'server_root_password'
       node.set['passenger']['ruby_string'] = '1.9.3-fake'
-      node.set['passenger']['version'] = '3.0.19-fake'
-      node.set['passenger']['version_map']['3.0.19-fake'] = '1.2.6-fake'
 
       # required because default value is nil
       node.set['rvm']['install_pkgs'] = []
