@@ -55,6 +55,12 @@ describe 'matrix_server' do
     end # it
   end # describe
 
+  describe 'cron' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'matrix_server::automysqlbackup' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
