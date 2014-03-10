@@ -43,4 +43,5 @@ include_recipe 'matrix_server::rails_app_db'                # => mysql::server
 include_recipe 'matrix_server::rails_app_web'
 include_recipe 'matrix_server::sudo'
 include_recipe 'matrix_server::sysctl'
+include_recipe 'nodejs'
 include_recipe 'openssh'

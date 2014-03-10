@@ -133,6 +133,12 @@ describe 'matrix_server' do
     end # it
   end # describe
 
+  describe 'nodejs' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'openssh' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
