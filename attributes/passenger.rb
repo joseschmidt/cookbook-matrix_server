@@ -21,7 +21,7 @@ normal['passenger']['version_map']              = {
   '3.0.11' => '1.0.10'
 } # map versions: passenger => nginx
 
-normal['passenger']['nginx']['prefix']          = '/opt/nginx-blah'
+normal['passenger']['nginx']['prefix']          = '/opt/nginx'
 normal['passenger']['nginx']['user']            = 'nginx'
 
 normal['passenger']['nginx']['conf_path']       =
