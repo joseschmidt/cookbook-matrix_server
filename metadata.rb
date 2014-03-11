@@ -2,15 +2,14 @@
 name              'matrix_server'
 maintainer        'James Hardie Building Products, Inc.'
 maintainer_email  'doc.walker@jameshardie.com'
-description       'Installs and configures application server for ' \
-                  'The Matrix.'
+description       'Configures application server for The Matrix.'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 license           'Apache 2.0'
 version           '0.1.0'
 
 #--------------------------------------------------------------------- recipes
 recipe            'matrix_server',
-                  'Includes dependent recipes to install/configure server'
+                  'Master recipe used to configure server'
 
 #------------------------------------------------------- cookbook dependencies
 depends           'build-essential'
