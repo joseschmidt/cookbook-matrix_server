@@ -20,34 +20,6 @@
 # limitations under the License.
 #
 
-#----------------------------------------------- cookbook_file[/etc/gitconfig]
-# install global git config
-cookbook_file '/etc/gitconfig' do
-  owner  'root'
-  group  'root'
-  mode   '0644'
-end # cookbook_file
-
-#------------------------------- remote_file[/etc/profile.d/git-completion.sh]
-# install git completion script
-remote_file '/etc/profile.d/git-completion.sh' do
-  source 'https://raw.github.com/git/git/master/contrib/completion/' \
-    'git-completion.bash'
-  owner  'root'
-  group  'root'
-  mode   '0644'
-end # remote_file
-
-#----------------------------------- remote_file[/etc/profile.d/git-prompt.sh]
-# install git prompt script
-remote_file '/etc/profile.d/git-prompt.sh' do
-  source 'https://raw.github.com/git/git/master/contrib/completion/' \
-    'git-prompt.sh'
-  owner  'root'
-  group  'root'
-  mode   '0644'
-end # remote_file
-
 #------------------------------------- template[/etc/profile.d/jhx_profile.sh]
 template '/etc/profile.d/jhx_profile.sh' do |t|
   owner   'root'

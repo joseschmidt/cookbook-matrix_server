@@ -36,6 +36,7 @@ include_recipe 'matrix_server::automysqlbackup'             # => mysql::server
 include_recipe 'matrix_server::bash'
 include_recipe 'matrix_server::bootstrap'
 include_recipe 'matrix_server::chef_client'
+include_recipe 'matrix_server::git'
 include_recipe 'matrix_server::network'
 include_recipe 'matrix_server::ntp'
 include_recipe 'matrix_server::passenger_nginx'                 # => passenger
