@@ -31,6 +31,12 @@ describe 'matrix_server' do
   end # cached
 
   #---------------------------------------------------------- include_recipe[]
+  describe 'selinux::permissive' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'mysql::server' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
@@ -44,6 +50,18 @@ describe 'matrix_server' do
   end # describe
 
   describe 'matrix_server::passenger' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'cron' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'java' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
     end # it
@@ -68,6 +86,12 @@ describe 'matrix_server' do
   end # describe
 
   describe 'matrix_server::chef_client' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'matrix_server::git' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
     end # it
@@ -109,6 +133,12 @@ describe 'matrix_server' do
     end # it
   end # describe
 
+  describe 'matrix_server::ssh_known_hosts' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'matrix_server::sudo' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
@@ -116,6 +146,24 @@ describe 'matrix_server' do
   end # describe
 
   describe 'matrix_server::sysctl' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'nodejs' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'openssh' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
+  describe 'user::data_bag' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
     end # it

@@ -21,21 +21,30 @@
 #
 
 #------------------------------------------------------------ include_recipe[]
-# prerequisites
+# prerequisites (dependencies indicated by => notation)
+include_recipe 'user::data_bag'
+include_recipe 'selinux::permissive'
 include_recipe 'mysql::server'
 include_recipe 'matrix_server::passenger_ohai_plugin'
-include_recipe 'matrix_server::passenger'          # req passenger_ohai_plugin
+include_recipe 'matrix_server::passenger'           # => passenger_ohai_plugin
+                                                           # => user::data_bag
 
 # recipes (alphabetical order where possible)
-include_recipe 'matrix_server::automysqlbackup'            # req mysql::server
+include_recipe 'cron'
+include_recipe 'java'
+include_recipe 'matrix_server::automysqlbackup'             # => mysql::server
 include_recipe 'matrix_server::bash'
 include_recipe 'matrix_server::bootstrap'
 include_recipe 'matrix_server::chef_client'
+include_recipe 'matrix_server::git'
 include_recipe 'matrix_server::network'
 include_recipe 'matrix_server::ntp'
-include_recipe 'matrix_server::passenger_nginx'                # req passenger
+include_recipe 'matrix_server::passenger_nginx'                 # => passenger
 include_recipe 'matrix_server::r_project'
-include_recipe 'matrix_server::rails_app_db'               # req mysql::server
+include_recipe 'matrix_server::rails_app_db'                # => mysql::server
 include_recipe 'matrix_server::rails_app_web'
+include_recipe 'matrix_server::ssh_known_hosts'
 include_recipe 'matrix_server::sudo'
 include_recipe 'matrix_server::sysctl'
+include_recipe 'nodejs'
+include_recipe 'openssh'
