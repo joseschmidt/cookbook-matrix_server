@@ -18,6 +18,10 @@ RSpec.configure do |config|
     stub_command("\"/usr/bin/mysql\" -u root -e 'show databases;'")
       .and_return(true)
 
+    #---------------------------------- recipe[matrix_server::ssh_known_hosts]
+    stub_search('node', 'keys_ssh:* NOT name:chefspec.local')
+      .and_return([])
+
     #--------------------------------------------- recipe[selinux::permissive]
     stub_command("getenforce | egrep -qx 'Permissive|Disabled'")
       .and_return(true)

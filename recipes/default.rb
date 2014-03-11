@@ -43,6 +43,7 @@ include_recipe 'matrix_server::passenger_nginx'                 # => passenger
 include_recipe 'matrix_server::r_project'
 include_recipe 'matrix_server::rails_app_db'                # => mysql::server
 include_recipe 'matrix_server::rails_app_web'
+include_recipe 'matrix_server::ssh_known_hosts'
 include_recipe 'matrix_server::sudo'
 include_recipe 'matrix_server::sysctl'
 include_recipe 'nodejs'

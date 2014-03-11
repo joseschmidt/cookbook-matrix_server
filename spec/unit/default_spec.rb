@@ -133,6 +133,12 @@ describe 'matrix_server' do
     end # it
   end # describe
 
+  describe 'matrix_server::ssh_known_hosts' do
+    it 'includes described recipe' do
+      expect(chef_run).to include_recipe(subject)
+    end # it
+  end # describe
+
   describe 'matrix_server::sudo' do
     it 'includes described recipe' do
       expect(chef_run).to include_recipe(subject)
