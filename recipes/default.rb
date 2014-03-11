@@ -31,6 +31,7 @@ include_recipe 'matrix_server::passenger'           # => passenger_ohai_plugin
 
 # recipes (alphabetical order where possible)
 include_recipe 'cron'
+include_recipe 'java'
 include_recipe 'matrix_server::automysqlbackup'             # => mysql::server
 include_recipe 'matrix_server::bash'
 include_recipe 'matrix_server::bootstrap'
