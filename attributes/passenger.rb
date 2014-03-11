@@ -4,6 +4,10 @@
 # Attributes:: passenger
 #
 
+# passenger ruby/gemset (rvm will install and use the following)
+# refer to attributes/rvm.rb for rvm global default ruby
+normal['passenger']['ruby_string']              = 'ruby-1.9.3-rc1@global'
+
 normal['passenger']['version']                  = '3.0.19'
 normal['passenger']['version_map']              = {
   '3.0.19' => '1.2.6',
