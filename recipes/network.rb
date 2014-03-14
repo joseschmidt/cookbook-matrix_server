@@ -63,65 +63,17 @@ template '/etc/sysconfig/network' do |t|
   action    :create
 end # template
 
-#------------------------------------------------------------ include_recipe[]
-include_recipe 'simple_iptables'
+#----------------------------------------------------------- service[iptables]
+service 'iptables' do
+  supports :status => true, :restart => true, :reload => true
+  action [:enable, :start]
+end # service
 
-#---------------------------------------------------- simple_iptables_policy[]
-simple_iptables_policy 'INPUT' do
-  policy 'DROP'
-end # simple_iptables_policy
-
-simple_iptables_policy 'FORWARD' do
-  policy 'DROP'
-end # simple_iptables_policy
-
-simple_iptables_policy 'OUTPUT' do
-  policy 'ACCEPT'
-end # simple_iptables_policy
-
-#------------------------------------------------------ simple_iptables_rule[]
-# accept all traffic to localhost (127.0.0.1) interface
-simple_iptables_rule 'accept_localhost' do
-  chain 'RH-Firewall-1-INPUT'
-  rule  '-i lo'
-  jump  'ACCEPT'
-end # simple_iptables_rule
-
-# all TCP sessions should begin with SYN
-simple_iptables_rule 'drop_unless_begins_with_syn' do
-  chain 'RH-Firewall-1-INPUT'
-  rule  '-p tcp ! --syn -m state --state NEW'
-  jump  'DROP'
-end # simple_iptables_rule
-
-# accept inbound ICMP packets
-simple_iptables_rule 'accept_icmp' do
-  chain 'RH-Firewall-1-INPUT'
-  rule  [
-      '-p icmp --icmp-type 8',
-      '-p icmp --icmp-type 11'
-    ]
-  jump  'ACCEPT'
-end # simple_iptables_rule
-
-# allow established/related connections to continue
-simple_iptables_rule 'accept_established_related' do
-  chain 'RH-Firewall-1-INPUT'
-  rule  '-m state --state ESTABLISHED,RELATED'
-  jump  'ACCEPT'
-end # simple_iptables_rule
-
-node['network']['firewall'].each do |port|
-  simple_iptables_rule "accept_port_#{port}" do
-    chain 'RH-Firewall-1-INPUT'
-    rule  "-m state --state NEW -m tcp -p tcp --dport #{port}"
-    jump  'ACCEPT'
-  end # simple_iptables_rule
-end # .each
-
-# reject all other inbound packets with icmp-host-prohibited message
-simple_iptables_rule 'reject_other_inbound' do
-  chain 'RH-Firewall-1-INPUT'
-  rule  ''
-  jump  'REJECT --reject-with icmp-host-prohibited'
-end # simple_iptables_rule
+#------------------------------------------- template[/etc/sysconfig/iptables]
+template '/etc/sysconfig/iptables' do
+  source    'iptables.erb'
+  owner     'root'
+  group     'root'
+  mode      '0600'
+  notifies  :reload, 'service[iptables]', :delayed
+end # template
