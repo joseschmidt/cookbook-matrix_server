@@ -24,7 +24,6 @@ describe 'matrix_server' do
       node.set['rvm']['install_pkgs'] = []
 
       # required for build-essential cookbook on travis-ci
-      # required for simple_iptables cookbook
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)

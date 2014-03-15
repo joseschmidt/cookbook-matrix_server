@@ -70,10 +70,14 @@ service 'iptables' do
 end # service
 
 #------------------------------------------- template[/etc/sysconfig/iptables]
-template '/etc/sysconfig/iptables' do
+template '/etc/sysconfig/iptables' do |t|
   source    'iptables.erb'
   owner     'root'
   group     'root'
   mode      '0600'
+  variables(
+    :header => node['file']['header'].gsub('@filename', t.name)
+      .gsub('@hostname', node['hostname'])
+  )
   notifies  :reload, 'service[iptables]', :delayed
 end # template
