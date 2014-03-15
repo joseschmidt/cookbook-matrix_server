@@ -104,15 +104,15 @@ describe 'matrix_server::network' do
       describe '/etc/sysconfig/iptables' do
         it 'creates template with expected owner, group, mode' do
           expect(chef_run).to create_template(subject)
-            .with(:owner => 'root', :group => 'root', :mode => '0600')
+            .with_owner('root').with_group('root').with_mode('0600')
         end # it
 
-        it 'renders file with expected header' do
+        it 'renders file with expected ACCEPT (port 2)' do
           expect(chef_run).to render_file(subject)
             .with_content('-m tcp -p tcp --dport 2 --jump ACCEPT')
         end # it
 
-        it 'renders file with expected header' do
+        it 'renders file with expected ACCEPT (port 178)' do
           expect(chef_run).to render_file(subject)
             .with_content('-m tcp -p tcp --dport 178 --jump ACCEPT')
         end # it
