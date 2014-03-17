@@ -13,7 +13,7 @@ recipe            'matrix_server',
 
 #------------------------------------------------------- cookbook dependencies
 depends           'build-essential', '~> 1.4'
-depends           'chef-sugar', '~> 1.1.0'
+depends           'chef-sugar', '~> 1.2.4'
 depends           'cron', '~> 1.2.2'
 depends           'database', '~> 1.3.10'
 depends           'java'
