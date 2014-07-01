@@ -11,6 +11,11 @@ group :test do
   gem 'chef-sugar', '~> 1.2.4'
   gem 'chefspec', '~> 3.4.0'
   gem 'foodcritic', '~> 3.0.3'
+
+  # TODO: remove rspec dependency declaration;
+  # chefspec specifies rspec ~2.14 and 2.99.0 breaks
+  gem 'rspec', '~> 2.14.0'
+
   gem 'rubocop', '~> 0.18.1'
   gem 'rvm', '~> 1.11.3.8'
 end # group
