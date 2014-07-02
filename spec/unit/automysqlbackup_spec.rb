@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'matrix_server::automysqlbackup' do
   before do
-    Chef::Sugar::DataBag.stub(:encrypted_data_bag_item).and_return(
+    allow(Chef::Sugar::DataBag).to receive(:encrypted_data_bag_item).and_return(
       'automysqlbackup' => 'automysqlbackup_password',
       'mysql' => {
         'root' => 'root_password'
