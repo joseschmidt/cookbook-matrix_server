@@ -19,3 +19,6 @@ SingleSpaceBeforeFirstArg:
 
 Lint/UnusedBlockArgument:
   Enabled: false
+
+Style/CommentIndentation:
+  Enabled: false
