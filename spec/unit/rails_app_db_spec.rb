@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'matrix_server::rails_app_db' do
   before do
-    Chef::Sugar::DataBag.stub(:encrypted_data_bag_item).and_return(
+    allow(Chef::Sugar::DataBag).to receive(:encrypted_data_bag_item).and_return(
       'insql' => 'insql_password',
       'matrix' => 'matrix_password',
       'matrix_staging' => 'matrix_staging_password',

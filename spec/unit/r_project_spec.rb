@@ -50,7 +50,7 @@ describe 'matrix_server::r_project' do
   context 'when qcc is installed' do
     before do
       # required for not_if attribute; prevents qcc library download
-      String.any_instance.stub(:include?)
+      allow_any_instance_of(String).to receive(:include?)
         .with("Package 'qcc', version 2.718").and_return(true)
     end # before
 
@@ -62,7 +62,7 @@ describe 'matrix_server::r_project' do
   context 'when qcc is not installed' do
     before do
       # required for not_if attribute; prevents qcc library download
-      String.any_instance.stub(:include?)
+      allow_any_instance_of(String).to receive(:include?)
         .with("Package 'qcc', version 2.718").and_return(false)
     end # before
 
