@@ -91,7 +91,7 @@ describe 'matrix_server::rails_app_db' do
           .with_host(domain)
           .with_password("#{subject.split('@')[0]}_password")
           .with_database_name('matrix_production')
-          .with_privileges(%w{ SELECT INSERT UPDATE })
+          .with_privileges(%w(SELECT INSERT UPDATE))
       end # it
     end # describe
   end # %w(...).each
@@ -125,7 +125,7 @@ describe 'matrix_server::rails_app_db' do
         .with_host('%')
         .with_password("#{subject}_password")
         .with_database_name('matrix_production')
-        .with_privileges(%w{ SELECT })
+        .with_privileges(%w(SELECT))
     end # it
   end # describe
 
