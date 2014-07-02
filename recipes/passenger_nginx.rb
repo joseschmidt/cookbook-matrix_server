@@ -71,7 +71,7 @@ nginx_signature = {
     'http_ssl_module',
     'cc-opt=-Wno-error',
     *node['passenger']['nginx']['modules']
-    ].sort
+  ].sort
 }
 
 extra_configure_flags = node['passenger']['nginx']['modules']
