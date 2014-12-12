@@ -26,7 +26,7 @@ depends           'rvm'
 depends           'selinux', '~> 0.8.0'
 depends           'ssh_known_hosts'
 depends           'sudo', '~> 2.3.0'
-depends           'sysctl'
+depends           'sysctl', '~> 0.6.0'
 depends           'user'
 depends           'yum-epel'
 
