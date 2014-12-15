@@ -10,7 +10,8 @@ describe 'matrix_server::r_project' do
 
   # need to use let instead of cached to allow qcc_installed mock to function
   let(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    options = { :file_cache_path => '/var/chefspec/cache' }
+    ChefSpec::SoloRunner.new(options) do |node|
       # override cookbook attributes
       node.set['r_project']['qcc']['version'] = '2.718'
       node.set['r_project']['r']['version'] = '0.0.0'
@@ -39,7 +40,7 @@ describe 'matrix_server::r_project' do
   end # describe
 
   #----------------------------- cookbook_file[/var/chef/cache/qcc_2.3.tar.gz]
-  describe "#{Chef::Config['file_cache_path']}/qcc_2.718.tar.gz" do
+  describe '/var/chefspec/cache/qcc_2.718.tar.gz' do
     it 'creates cookbook file with expected owner, group, mode' do
       expect(chef_run).to create_cookbook_file(subject)
         .with(:owner => 'root', :group => 'root', :mode => '0644')
