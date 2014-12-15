@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'matrix_server::sudo' do
   cached(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    ChefSpec::SoloRunner.new do |node|
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)

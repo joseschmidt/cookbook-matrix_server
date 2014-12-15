@@ -11,7 +11,7 @@ describe 'matrix_server::network' do
   ].each do |i|
     context "#{i[:platform]}/#{i[:version]}" do
       cached(:chef_run) do
-        ChefSpec::Runner.new(i) do |node|
+        ChefSpec::SoloRunner.new(i) do |node|
           # override cookbook attributes
           node.override['file']['header'] = 'node.file.header'
 

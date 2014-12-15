@@ -18,7 +18,7 @@ describe 'matrix_server::rails_app_web' do
   ].each do |i|
     context "#{i[:platform]}/#{i[:version]}" do
       cached(:chef_run) do
-        ChefSpec::Runner.new(i) do |node|
+        ChefSpec::SoloRunner.new(i) do |node|
           # create a new environment
           env = Chef::Environment.new
           env.name 'qa'

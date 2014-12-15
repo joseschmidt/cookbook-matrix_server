@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'matrix_server::passenger_nginx' do
   cached(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    ChefSpec::SoloRunner.new do |node|
       # override cookbook attributes
       node.override['passenger']['nginx']['prefix'] = '/opt/nginx-qa'
       node.override['passenger']['nginx']['user'] = 'nginx-qa'

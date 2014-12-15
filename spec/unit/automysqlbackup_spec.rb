@@ -12,7 +12,7 @@ describe 'matrix_server::automysqlbackup' do
   end # before
 
   cached(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    ChefSpec::SoloRunner.new do |node|
       # create a new environment
       env = Chef::Environment.new
       env.name 'qa'
