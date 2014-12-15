@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'matrix_server::passenger_ohai_plugin' do
   cached(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    ChefSpec::SoloRunner.new do |node|
       # override cookbook attributes
       node.override['ohai']['plugin_path'] = '/etc/chef/ohai_plugins-qa'
       node.override['passenger']['nginx']['prefix'] = '/opt/nginx-qa'

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'matrix_server::passenger' do
   cached(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    ChefSpec::SoloRunner.new do |node|
       # override cookbook attributes
       node.override['passenger']['ruby_string'] = '1.9.3-fake'
       node.override['passenger']['version']     = '3.0.19-fake'

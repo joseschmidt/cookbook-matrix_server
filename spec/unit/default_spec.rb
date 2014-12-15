@@ -13,7 +13,7 @@ describe 'matrix_server' do
   end # before
 
   cached(:chef_run) do
-    ChefSpec::Runner.new do |node|
+    ChefSpec::SoloRunner.new do |node|
       # override cookbook attributes
       node.set['mysql']['server_debian_password'] = 'server_debian_password'
       node.set['mysql']['server_repl_password'] = 'server_repl_password'
