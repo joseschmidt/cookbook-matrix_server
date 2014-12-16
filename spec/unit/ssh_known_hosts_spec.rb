@@ -3,7 +3,8 @@ require 'spec_helper'
 
 describe 'matrix_server::ssh_known_hosts' do
   cached(:chef_run) do
-    ChefSpec::SoloRunner.new do |node|
+    # ssh_known_hosts cookbook ~> 2.0.0 requires ChefSpec::ServerRunner
+    ChefSpec::ServerRunner.new do |node|
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
     end.converge(described_recipe)
