@@ -13,7 +13,7 @@ describe 'matrix_server' do
   end # before
 
   cached(:chef_run) do
-    ChefSpec::SoloRunner.new do |node|
+    ChefSpec::ServerRunner.new do |node, server|
       # override cookbook attributes
       node.set['mysql']['server_debian_password'] = 'server_debian_password'
       node.set['mysql']['server_repl_password'] = 'server_repl_password'
@@ -26,6 +26,14 @@ describe 'matrix_server' do
       # required for build-essential cookbook on travis-ci
       # required for sysctl cookbook
       node.set['platform_family'] = 'rhel'
+
+      # required for ChefSpec::ServerRunner && user::data_bag
+      server.create_data_bag(
+        'users',
+        'jeeves' => {
+          'username' => 'jeeves'
+        }
+      )
     end.converge(described_recipe)
   end # cached
 
