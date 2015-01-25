@@ -28,7 +28,7 @@ depends           'ssh_known_hosts', '~> 2.0.0'
 depends           'sudo', '~> 2.3.0'
 depends           'sysctl', '~> 0.6.2'
 depends           'user', '~> 0.3.0'
-depends           'yum-epel'
+depends           'yum-epel', '~> 0.5.3'
 
 #--------------------------------------------------------- supported platforms
 # tested
