@@ -62,8 +62,8 @@ passenger_ruby = '/usr/local/rvm/wrappers/' \
   "#{node['passenger']['ruby_string']}/ruby"
 
 nginx_signature = {
-  'version' => node['passenger']['version_map']
-    .fetch(node['passenger']['version']),
+  'version' =>
+    node['passenger']['version_map'].fetch(node['passenger']['version']),
   'passenger_version' => node['passenger']['version'],
   'prefix' => node['passenger']['nginx']['prefix'],
   'ruby_string' => node['passenger']['ruby_string'],
@@ -74,11 +74,11 @@ nginx_signature = {
   ].sort
 }
 
-extra_configure_flags = node['passenger']['nginx']['modules']
-  .map { |flag| "--with-#{flag}" }
+extra_configure_flags =
+  node['passenger']['nginx']['modules'].map { |flag| "--with-#{flag}" }
 
-configure_flags = node['passenger']['nginx']['configure_flags']
-  .map { |flag| "--#{flag}" }
+configure_flags =
+  node['passenger']['nginx']['configure_flags'].map { |flag| "--#{flag}" }
 
 rvm_shell "#{passenger_root}/bin/passenger-install-nginx-module" do
   ruby_string node['passenger']['ruby_string']

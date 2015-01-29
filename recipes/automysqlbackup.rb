@@ -36,7 +36,8 @@ item = node['automysqlbackup']
 connection_info = {
   :host => 'localhost',
   :username => 'root',
-  :password => node['mysql']['server_root_password'] ||
+  :password =>
+    node['mysql']['server_root_password'] ||
     secret['mysql']['root']
 }
 
