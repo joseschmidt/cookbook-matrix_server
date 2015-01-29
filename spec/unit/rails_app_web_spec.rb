@@ -174,7 +174,7 @@ describe 'matrix_server::rails_app_web' do
 
           it 'renders file with expected stage name' do
             expect(chef_run).to render_file(subject)
-            .with_content("#{name}:")
+              .with_content("#{name}:")
           end # it
 
           it 'renders file with expected port' do

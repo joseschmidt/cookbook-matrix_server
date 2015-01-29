@@ -33,8 +33,8 @@ secret = encrypted_data_bag_item(:encrypted, node.chef_environment)
 connection_info = {
   :username => 'root',
   :host => 'localhost',
-  :password => node['mysql']['server_root_password'] ||
-    secret['mysql']['root']
+  :password =>
+    node['mysql']['server_root_password'] || secret['mysql']['root']
 }
 
 #------------------------------------------------------- mysql_database_user[]
