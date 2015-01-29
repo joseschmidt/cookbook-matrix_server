@@ -11,7 +11,7 @@ group :test do
   gem 'chef-sugar', '~> 2.5.0'
   gem 'chefspec', :github => 'sethvargo/chefspec'
   gem 'foodcritic', '~> 4.0.0'
-  gem 'rubocop', '~> 0.24.1'
+  gem 'rubocop', '~> 0.28.0'
   gem 'rvm', '~> 1.11.3.8'
 end # group
 
