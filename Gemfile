@@ -8,14 +8,15 @@ end # group
 
 group :test do
   gem 'berkshelf', '~> 3.2.3'
+  gem 'chef', '~> 11.16.4'
   gem 'chef-sugar', '~> 2.5.0'
-  gem 'chefspec', :github => 'sethvargo/chefspec'
+  gem 'chefspec', '~> 4.2.0'
   gem 'foodcritic', '~> 4.0.0'
   gem 'rubocop', '~> 0.28.0'
   gem 'rvm', '~> 1.11.3.8'
 end # group
 
 group :integration do
-  gem 'test-kitchen', '~> 1.2.1'
+  gem 'test-kitchen', '~> 1.3.1'
   gem 'kitchen-vagrant', '~> 0.15.0'
 end # group
