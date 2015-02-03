@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'chef/mixin/shell_out'
 require 'chef/sugar'
 require 'chefspec'
 require 'chefspec/berkshelf'
