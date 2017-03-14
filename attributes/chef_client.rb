@@ -4,4 +4,4 @@
 # Attributes:: chef_client
 #
 
-normal['chef_client']['server_url'] = 'http://matrix.usa.hardie.win:4000'
+normal['chef_client']['server_url'] = 'https://irvchef01.usa.hardie.win/organizations/jhx'
